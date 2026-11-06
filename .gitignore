@@ -1,0 +1,17 @@
+# 依赖与构建产物
+node_modules
+dist
+dist-electron
+
+# 打包输出（安装包体积大，走 GitHub Releases 分发，不进仓库）
+release
+release-win
+*.asar
+*.blockmap
+
+# 临时文件
+.shots
+.demo
+*.log
+.DS_Store
+Thumbs.db

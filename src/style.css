@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #app {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-pond-50 text-pond-900 antialiased;
+    font-family:
+      'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', 'Source Han Sans SC', system-ui,
+      -apple-system, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: #cfe8f6;
+    color: #274a60;
+  }
+
+  /* 细一点的滚动条，桌面端更好看 */
+  ::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cfe8f6;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a9d6ec;
+    background-clip: padding-box;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl2 border border-pond-100 bg-white shadow-soft;
+  }
+
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl px-3.5 py-2 text-[13px] font-medium transition-colors duration-150 select-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-pond-500 text-white hover:bg-pond-600;
+  }
+
+  .btn-ghost {
+    @apply btn border border-pond-200 bg-white text-pond-700 hover:bg-pond-50;
+  }
+
+  .btn-soft {
+    @apply btn bg-pond-100 text-pond-700 hover:bg-pond-200;
+  }
+
+  .btn-danger {
+    @apply btn border border-rose-200 bg-white text-rose-500 hover:bg-rose-50;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-pond-200 bg-white px-3.5 py-2.5 text-[13.5px] text-pond-900 outline-none transition placeholder:text-pond-300 focus:border-pond-400 focus:ring-2 focus:ring-pond-100;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[12.5px] font-medium text-pond-700;
+  }
+
+  .hint {
+    @apply text-[12px] leading-relaxed text-pond-500;
+  }
+
+  .section-title {
+    @apply flex items-center gap-2 text-[15px] font-semibold tracking-wide text-pond-800;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-lg px-2 py-0.5 text-[11.5px] font-medium;
+  }
+}
+
+/* 肥鱼游动的小动画（只用在等待状态，很克制） */
+@keyframes fish-swim {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(6px) rotate(-3deg);
+  }
+}
+
+.animate-fish {
+  animation: fish-swim 1.8s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.25s ease-out both;
+}
+
+@keyframes bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.6);
+  }
+  40% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px) scale(1);
+  }
+}
+
+.animate-bubble {
+  animation: bubble 1.6s ease-in-out infinite;
+}
