@@ -212,14 +212,6 @@ npx electron-builder --win --x64 --config.win.signAndEditExecutable=false
 
 第 3 种方式装出来的软件功能完全正常，只是 exe 文件属性里的图标和版本号保持 Electron 默认值。
 
-### 分发给别人
-
-把 `release/` 里的安装包直接发给对方就行：
-
-- Windows：`鱼塘周记馆-1.0.0-安装包.exe`
-- macOS：`鱼塘周记馆-1.0.0-arm64.dmg` / `-x64.dmg`
-
-对方装好后，**需要自己填一个 API Key** 才能用。如果想让别人开箱即用，得由你来提供 Key —— 但那样费用就算你的了，一般不建议。
 
 ### 目录结构
 
